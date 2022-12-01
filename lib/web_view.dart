@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class WebViewPage extends StatelessWidget {
+class WebViewPage extends StatefulWidget {
   final String webView;
   const WebViewPage({super.key, required this.webView});
 
+  @override
+  State<WebViewPage> createState() => _WebViewPageState();
+}
+
+class _WebViewPageState extends State<WebViewPage> {
+  double loadingPercentage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +22,13 @@ class WebViewPage extends StatelessWidget {
         ),
       ),
       body: WebView(
-        initialUrl: webView,
+        initialUrl: widget.webView,
         javascriptMode: JavascriptMode.unrestricted,
+        onProgress: (progress) {
+          setState(() {
+            loadingPercentage = progress.toDouble();
+          });
+        },
       ),
     );
   }
