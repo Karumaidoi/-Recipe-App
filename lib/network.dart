@@ -26,6 +26,7 @@ class ApiService {
     String baseUrl = "https://forkify-api.herokuapp.com/api/v2/recipes/$id";
     try {
       var res = await http.get(Uri.parse(baseUrl));
+      print(res.body);
       if (res.statusCode == 200) {
         return RecipeModel.fromJson(jsonDecode(res.body)['data']['recipe']);
       } else {

@@ -48,3 +48,19 @@ class RecipeModel {
         title: json["title"]);
   }
 }
+
+class IngredientsModel {
+  late double quantity;
+  late String unit;
+  late String description;
+
+  IngredientsModel(
+      {required this.quantity, required this.unit, required this.description});
+
+  factory IngredientsModel.fromJson(Map<String, dynamic> json) {
+    return IngredientsModel(
+        quantity: json['quantity'],
+        unit: json['unit'],
+        description: json['description']);
+  }
+}
