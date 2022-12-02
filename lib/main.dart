@@ -15,10 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      darkTheme: ThemeData.dark(),
       title: 'Recipe',
       theme: ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.dark(),
       ),
       home: const MyHomePage(),
     );
@@ -44,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           'Recipe',
